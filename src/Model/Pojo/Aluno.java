@@ -25,7 +25,7 @@ public class Aluno extends Pessoa {
 	public List<Falta> getListaFalta() {
 		return listaFalta;
 	}
-
+	
 	public List<Nota> getListaNotas() {
 		return listaNotas;
 	}

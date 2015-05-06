@@ -1,13 +1,12 @@
 package Model.Pojo;
 
-import java.util.Calendar;
 import java.util.List;
 
 public class Turma {
 	private int ano;
 	private int periodo;
 	private String local;
-	private Calendar horario;
+	private String horario;
 	private int numeroVagas;
 	private List<Falta> listaFalta;
 	private List<Atividade> listaAtividade;
@@ -24,14 +23,14 @@ public class Turma {
 	public String getLocal() {
 		return local;
 	}
-	public Calendar getHorario() {
+	public String getHorario() {
 		return horario;
 	}
 	public int getNumeroVagas() {
 		return numeroVagas;
 	}
 	
-	public Turma(int ano,int periodo, String local, Calendar horario, int numeroVagas) {
+	public Turma(int ano,int periodo, String local, String horario, int numeroVagas) {
 		this.ano=ano;
 		this.periodo=periodo;
 		this.local=local;
