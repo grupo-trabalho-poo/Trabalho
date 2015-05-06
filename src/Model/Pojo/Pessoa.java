@@ -36,4 +36,10 @@ public class Pessoa {
 		//return this.cpf == aluno.getCpf();
 		return this.cpf.equals(aluno.getCpf());
 	}
+	
+	@Override
+	public String toString() {
+		
+		return (" Nome: "+this.nome+" CPF: "+this.cpf);
+	}
 }

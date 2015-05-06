@@ -32,7 +32,7 @@ public class AlunoView {
 	private Scanner scanner1;
 	public void listar(){
 		for(Aluno aluno:listaAluno){
-			System.out.println(" Nome: "+aluno.getNome()+" CPF: "+aluno.getCpf());
+			System.out.println(aluno);
 		}
 	}
 	
@@ -42,7 +42,7 @@ public class AlunoView {
 		String cpf = scanner1.nextLine();
 		Aluno aluno = new Aluno(cpf);
 		aluno = alunoDaoImp.pesquisar(aluno);
-		System.out.println("Aluno a ser Removido= Nome: "+aluno.getNome()+ " - CPF: "+aluno.getCpf());
+		System.out.println("Aluno a ser Removido: " + aluno);
 		alunoDaoImp.remover(aluno);
 		
 		
