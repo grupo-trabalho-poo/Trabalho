@@ -7,6 +7,7 @@ public interface ProfessorDao {
 
 	public void cadastrar(Professor professor);
 	public void remover(Professor professor);
+	public Professor pesquisar(Professor professor);
 	
 	
 

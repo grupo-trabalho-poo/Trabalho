@@ -26,14 +26,27 @@ public class AlunoView {
 	}
 	
 	
-	List<Aluno> listaAluno = alunoDaoImp.obter();
+	List<Aluno> listaAluno = alunoDaoImp.obterLista();
+
+
+	private Scanner scanner1;
 	public void listar(){
 		for(Aluno aluno:listaAluno){
 			System.out.println(" Nome: "+aluno.getNome()+" CPF: "+aluno.getCpf());
 		}
 	}
 	
-
+	public void removerAluno(){
+		scanner1 = new Scanner (System.in);
+		System.out.println("Entre com o cpf do aluno a sr deletado: ");
+		String cpf = scanner1.nextLine();
+		Aluno aluno = new Aluno(cpf);
+		aluno = alunoDaoImp.pesquisar(aluno);
+		System.out.println("Aluno a ser Removido= Nome: "+aluno.getNome()+ " - CPF: "+aluno.getCpf());
+		alunoDaoImp.remover(aluno);
+		
+		
+	}
 	
 	
 	public AlunoView(AlunoDaoImp alunoDaoImp) {
@@ -47,10 +60,5 @@ public class AlunoView {
 				
 	}
 
-
-
-
-
-	
 
 }

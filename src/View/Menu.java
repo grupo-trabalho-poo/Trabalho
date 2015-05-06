@@ -11,6 +11,8 @@ public class Menu {
 		alunoView.cadastrar();
 		alunoView.cadastrar();
 		alunoView.listar();
+		alunoView.removerAluno();
+		alunoView.listar();
 		
 		
 		
