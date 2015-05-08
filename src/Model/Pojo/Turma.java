@@ -82,14 +82,14 @@ public class Turma {
 		this.codigoTurma = codigoTurma;
 	}
 	
-//	@Override
-//	public boolean equals(Object obj) {
-//		if (!(obj instanceof Turma)) {
-//			return false;
-//		}
-//		Turma turma = (Turma)obj;
-//		return this.codigoTurma.equals(turma.getCodigoTurma());
-//	}
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Turma)) {
+			return false;
+		}
+		Turma turma = (Turma)obj;
+		return this.codigoTurma.equals(turma.getCodigoTurma());
+	}
 	
 	@Override
 	public String toString() {
