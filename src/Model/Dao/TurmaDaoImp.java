@@ -57,7 +57,7 @@ public class TurmaDaoImp implements TurmaDao{
 				 return turma1;
 			}
 		}
-		Turma turma2 = new Turma(0,0, 0, "Nao Achou a Turma", null, 0);
+		Turma turma2 = new Turma("",0, 0, "Nao Achou a Turma", null, 0);
 		return turma2;
 	}
 }

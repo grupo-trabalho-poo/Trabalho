@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Turma {
 	
-	private int codigoTurma;
+	private String codigoTurma;
 	private int ano;
 	private int periodo;
 	private String local;
@@ -15,10 +15,10 @@ public class Turma {
 	private Turma disciplina;
 	private Professor professor;
 	private List<Aluno> listaAluno;
-	private String ementa;
 	
 	
-	public int getCodigoTurma() {
+	
+	public String getCodigoTurma() {
 		return codigoTurma;
 	}
 
@@ -69,8 +69,8 @@ public class Turma {
 	
 	
 	
-	public Turma(int codigoTurma,int ano,int periodo, String local, String horario, int numeroVagas) {
-		this.codigoTurma = codigoTurma;
+	public Turma(String i,int ano,int periodo, String local, String horario, int numeroVagas) {
+		this.codigoTurma = i;
 		this.ano=ano;
 		this.periodo=periodo;
 		this.local=local;
@@ -78,7 +78,7 @@ public class Turma {
 		this.numeroVagas=numeroVagas;
 	}
 	
-	public Turma(int codigoTurma) {
+	public Turma(String codigoTurma) {
 		this.codigoTurma = codigoTurma;
 	}
 	
