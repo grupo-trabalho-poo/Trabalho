@@ -1,8 +1,10 @@
 package Model.Pojo;
 
 public class Pessoa {
+	
 	private String nome;
 	private String cpf;
+	
 	
 	
 	
@@ -10,14 +12,14 @@ public class Pessoa {
 		return nome;
 	}
 
-
-
 	public String getCpf() {
 		return cpf;
 	}
-
 	
-	public Pessoa (String nome, String cpf){
+	
+	
+	
+	public Pessoa (String nome, String cpf) {
 		this.nome=nome;
 		this.cpf=cpf;
 	}
@@ -26,20 +28,20 @@ public class Pessoa {
 		this.cpf=cpf;
 	}
 	
+	
+	
+	
 	@Override
 	public boolean equals(Object obj) {
-		if (!(obj instanceof Aluno)){
+		if (!(obj instanceof Pessoa)) {
 			return false;
 		}
-		
-		Aluno aluno = (Aluno)obj;
-		//return this.cpf == aluno.getCpf();
-		return this.cpf.equals(aluno.getCpf());
+		Pessoa pessoa = (Pessoa)obj;
+		return this.cpf.equals(pessoa.getCpf());
 	}
 	
 	@Override
 	public String toString() {
-		
 		return (" Nome: "+this.nome+" CPF: "+this.cpf);
 	}
 }

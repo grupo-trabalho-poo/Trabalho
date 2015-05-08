@@ -6,11 +6,8 @@ import Model.Pojo.Aluno;
 
 public interface AlunoDao {
 	
-	
-	
 	public void cadastrar(Aluno aluno);
 	public void remover(Aluno aluno);
 	public List<Aluno> obterLista();
-	public Aluno pesquisar(Aluno aluno);
-	
+	public Aluno pesquisar(Aluno aluno);	
 }

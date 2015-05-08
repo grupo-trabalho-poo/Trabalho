@@ -8,8 +8,24 @@ import Model.Pojo.Nota;
 public class NotaView {
 	
 	NotaDaoImp notaDaoImp = new NotaDaoImp();
-
 	private Scanner scanner;
+	
+	
+	
+	
+	private void setNotadaoImp(NotaDaoImp notaDaoImp) {
+		
+	}
+	
+	
+	
+	
+	public NotaView(NotaDaoImp notaDaoImp) {
+		this.setNotadaoImp(notaDaoImp);
+	}
+	
+	
+	
 	
 	public void cadastrar(){
 		scanner = new Scanner (System.in);
@@ -17,21 +33,5 @@ public class NotaView {
 		float notaAluno = scanner.nextInt();
 		Nota nota = new Nota(notaAluno);
 		notaDaoImp.cadastrar(nota);
-		
 	}
-	
-
-	
-	
-	public NotaView(NotaDaoImp notaDaoImp) {
-		this.setNotadaoImp(notaDaoImp);
-	}
-
-
-
-
-	private void setNotadaoImp(NotaDaoImp notaDaoImp) {
-				
-	}
-
 }

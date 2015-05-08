@@ -8,11 +8,26 @@ import Model.Pojo.Aluno;
 
 public class AlunoView {
 	
-	
 	AlunoDaoImp alunoDaoImp = new AlunoDaoImp();
-
-
 	private Scanner scanner;
+	private Scanner scanner1;
+	
+	
+	
+	
+	private void setAlunodaoImp(AlunoDaoImp alunoDaoImp) {
+		
+	}
+	
+	
+	
+	
+	public AlunoView(AlunoDaoImp alunoDaoImp) {
+		this.setAlunodaoImp(alunoDaoImp);
+	}
+	
+	
+	
 	
 	public void cadastrar(){
 		scanner = new Scanner (System.in);
@@ -22,15 +37,10 @@ public class AlunoView {
 		String cpf = scanner.nextLine();
 		Aluno aluno = new Aluno(nome,cpf);
 		alunoDaoImp.cadastrar(aluno);
-		
 	}
 	
-	
-	List<Aluno> listaAluno = alunoDaoImp.obterLista();
-
-
-	private Scanner scanner1;
 	public void listar(){
+		List<Aluno> listaAluno = alunoDaoImp.obterLista();
 		for(Aluno aluno:listaAluno){
 			System.out.println(aluno);
 		}
@@ -38,27 +48,11 @@ public class AlunoView {
 	
 	public void removerAluno(){
 		scanner1 = new Scanner (System.in);
-		System.out.println("Entre com o cpf do aluno a sr deletado: ");
+		System.out.println("Entre com o cpf do aluno a ser deletado: ");
 		String cpf = scanner1.nextLine();
 		Aluno aluno = new Aluno(cpf);
 		aluno = alunoDaoImp.pesquisar(aluno);
 		System.out.println("Aluno a ser Removido: " + aluno);
-		alunoDaoImp.remover(aluno);
-		
-		
+		alunoDaoImp.remover(aluno);	
 	}
-	
-	
-	public AlunoView(AlunoDaoImp alunoDaoImp) {
-		this.setAlunodaoImp(alunoDaoImp);
-	}
-
-
-
-
-	private void setAlunodaoImp(AlunoDaoImp alunoDaoImp) {
-				
-	}
-
-
 }

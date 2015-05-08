@@ -8,16 +8,13 @@ public class Professor extends Pessoa {
 	private List<Turma> listaTurma;
 	private List<Disciplina> listaDisciplina;
 
+	
+	
+	
 	public String getDepartamento() {
 		return departamento;
 	}
 	
-	public Professor(String nome, String cpf, String departamento) {
-		super(nome, cpf);
-		this.departamento=departamento;
-		// TODO Auto-generated constructor stub
-	}
-
 	public List<Turma> getListaTurma() {
 		return listaTurma;
 	}
@@ -25,7 +22,24 @@ public class Professor extends Pessoa {
 	public List<Disciplina> getListaDisciplina() {
 		return listaDisciplina;
 	}
-
 	
-
+	
+	
+	
+	public Professor(String nome, String cpf, String departamento) {
+		super(nome, cpf);
+		this.departamento=departamento;
+	}
+	
+	public Professor(String cpf){
+		super(cpf);
+	}
+	
+	
+	
+	
+	@Override
+	public String toString() {
+		return super.toString()+" Departamento: "+ this.departamento;
+	}
 }
