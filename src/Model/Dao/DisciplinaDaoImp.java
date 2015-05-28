@@ -4,24 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Model.Pojo.Disciplina;
-import Model.Pojo.Disciplina;
 
 public class DisciplinaDaoImp implements DisciplinaDao{
 	
-	private List<Disciplina> listaDisciplina;
+	private static List<Disciplina> listaDisciplina= new ArrayList<Disciplina>();
 	
 	
 	
 	
-	public List<Disciplina> getListaDisciplina() {
-		return listaDisciplina;
+	public static List<Disciplina> getListaDisciplina() {
+		return DisciplinaDaoImp.listaDisciplina;
 	}
 	
 	
 	
 	
 	public DisciplinaDaoImp(){
-		this.listaDisciplina = new ArrayList<Disciplina>();
 	}
 	
 
@@ -29,12 +27,12 @@ public class DisciplinaDaoImp implements DisciplinaDao{
 	
 	@Override
 	public void cadastrar(Disciplina disciplina) {
-		this.listaDisciplina.add(disciplina);
+		DisciplinaDaoImp.listaDisciplina.add(disciplina);
 	}
 	
 	@Override
 	public void remover(Disciplina disciplina) {
-		this.listaDisciplina.remove(disciplina);	
+		DisciplinaDaoImp.listaDisciplina.remove(disciplina);	
 	}
 
 
@@ -42,7 +40,7 @@ public class DisciplinaDaoImp implements DisciplinaDao{
 
 	@Override
 	public List<Disciplina> obterLista() {
-		return this.listaDisciplina;
+		return DisciplinaDaoImp.listaDisciplina;
 	}
 
 
@@ -50,12 +48,26 @@ public class DisciplinaDaoImp implements DisciplinaDao{
 
 	@Override
 	public Disciplina pesquisar(Disciplina disciplina) {
+		
+		int index =DisciplinaDaoImp.listaDisciplina.indexOf(disciplina);
+		System.out.println("---" +index);
+			return DisciplinaDaoImp.listaDisciplina.get(index);
+		
+		}
+
+
+	
+
+	@Override
+	public Disciplina pesquisar2(Disciplina disciplina) {
 		for(Disciplina disciplina1:listaDisciplina){
 			if(disciplina1.equals(disciplina)){
 				 return disciplina1;
 			}
 		}
-		Disciplina disciplina2 = new Disciplina("Não encontrou a Disciplina","000", 0);
+		Disciplina disciplina2 = new Disciplina(null);
 		return disciplina2;
+	}		
+
 	}
-}
+

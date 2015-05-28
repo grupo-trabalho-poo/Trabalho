@@ -3,61 +3,68 @@ package Model.Dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import Model.Pojo.Turma;
+import Model.Pojo.Aluno;
+import Model.Pojo.Disciplina;
 import Model.Pojo.Turma;
 
-public class TurmaDaoImp implements TurmaDao{
-	
-//primeiro comit
+public class TurmaDaoImp implements TurmaDao {
 
-	private List<Turma> listaTurma;
-	
-	
-	
-	
-	public List<Turma> getListaTurma() {
-		return listaTurma;
+	// primeiro comit
+
+	private static List<Turma> listaTurma = new ArrayList<Turma>();;
+
+	public static List<Turma> getListaTurma() {
+		return TurmaDaoImp.listaTurma;
 	}
-	
-	
-	
-	
-	public TurmaDaoImp(){
-		this.listaTurma = new ArrayList<Turma>();
+
+	public TurmaDaoImp() {
+
 	}
-	
-	
-	
-	
+
 	@Override
-	public void cadastrar(Turma turma) {
-		this.listaTurma.add(turma);
+	public void cadastrar(Turma turma, Disciplina disciplina,
+			List<Disciplina> listaDisciplina) {
+		if (listaDisciplina.contains(disciplina)) {
+			TurmaDaoImp.listaTurma.add(turma);
+		} else
+			System.out.println("A disciplina ainda não foi cadastrada");
+
 	}
-	
+
 	@Override
 	public void remover(Turma turma) {
-		this.listaTurma.add(turma);	
+		TurmaDaoImp.listaTurma.remove(turma);
 	}
-
-
-
 
 	@Override
 	public List<Turma> obterLista() {
-		return this.listaTurma;
+		return TurmaDaoImp.listaTurma;
 	}
-
-
-
 
 	@Override
 	public Turma pesquisar(Turma turma) {
-		for(Turma turma1:listaTurma){
-			if(turma1.equals(turma)){
-				 return turma1;
+		return TurmaDaoImp.listaTurma.get(listaTurma.indexOf(turma));
+
+	}
+
+	public void cadastrarAlunos(Aluno aluno, Turma turma) {
+
+		if (TurmaDaoImp.listaTurma.contains(turma)) {
+			TurmaDaoImp.getListaTurma().get(TurmaDaoImp.listaTurma.indexOf(turma)).getListaAluno()
+					.add(aluno);
+		} else
+			System.out.println(" A Turma ainda não está cadastrada");
+
+	}
+
+	public List<Turma> pesquisarTurmaNomeDisciplina(String nomeDisciplina) {
+		List<Turma> listaDeTurmasDisciplina = new ArrayList<Turma>();
+		for (Turma turma : listaTurma) {
+			if (nomeDisciplina.equals(turma.getDisciplina().getNome())) {
+				listaDeTurmasDisciplina.add(turma);
 			}
 		}
-		Turma turma2 = new Turma("",0, 0, "Nao Achou a Turma", null, 0);
-		return turma2;
+		return listaDeTurmasDisciplina;
 	}
+
 }

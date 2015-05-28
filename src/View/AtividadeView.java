@@ -6,26 +6,19 @@ import java.util.Scanner;
 
 import Model.Dao.AtividadeDaoImp;
 import Model.Pojo.Atividade;
-import Model.Pojo.Atividade;
+
 
 public class AtividadeView {
 	
-	AtividadeDaoImp atividadeDaoImp = new AtividadeDaoImp();
+	private AtividadeDaoImp atividadeDaoImp ;
 	private Scanner scanner;
 	private Scanner scanner1;
 	
 	
 	
 	
-	private void setAtividadedaoImp(AtividadeDaoImp atividadeDaoImp) {
-		
-	}
-	
-	
-	
-	
 	public AtividadeView(AtividadeDaoImp atividadeDaoImp) {
-		this.setAtividadedaoImp(atividadeDaoImp);
+		this.atividadeDaoImp= atividadeDaoImp;
 	}
 	
 	

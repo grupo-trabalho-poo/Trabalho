@@ -8,7 +8,7 @@ import Model.Pojo.Professor;
 
 public class ProfessorDaoImp implements ProfessorDao{
 	
-	private List<Professor> listaProfessor;
+	private static List<Professor> listaProfessor= new ArrayList<Professor>();
 	
 	
 	
@@ -21,7 +21,7 @@ public class ProfessorDaoImp implements ProfessorDao{
 	
 	
 	public ProfessorDaoImp() {
-		this.listaProfessor = new ArrayList<Professor>();
+		
 	}
 	
 	
@@ -29,27 +29,31 @@ public class ProfessorDaoImp implements ProfessorDao{
 	
 	@Override
 	public void cadastrar(Professor professor) {
-		this.listaProfessor.add(professor);
+		ProfessorDaoImp.listaProfessor.add(professor);
 	}
 	
 	@Override
 	public void remover(Professor professor) {
-		this.listaProfessor.remove(professor);
+		ProfessorDaoImp.listaProfessor.remove(professor);
 	}
 	
 	@Override
 	public List<Professor> obterLista() {
-		return this.listaProfessor;
+		return ProfessorDaoImp.listaProfessor;
 	}
 
 	@Override
 	public Professor pesquisar(Professor professor) {
-		for(Professor professor1:listaProfessor){
-			if(professor1.equals(professor)){
-				 return professor1;
-			}
+		int index = listaProfessor.indexOf(professor);
+		
+		//System.out.println("REsultado:" + index);
+		
+		if(index==-1){
+			System.out.println("Professor nao cadastrado");
+			return null;
 		}
-		Professor professor2 = new Professor("Não achou Professor","000 ","Invalido");
-		return professor2;
+		return listaProfessor.get(index);
+
 	}
+
 }

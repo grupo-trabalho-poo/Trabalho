@@ -1,12 +1,13 @@
 package Model.Pojo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Professor extends Pessoa {
 
 	private String departamento;
-	private List<Turma> listaTurma;
-	private List<Disciplina> listaDisciplina;
+	private List<Turma> listaTurma=new ArrayList<Turma>();
+	private List<Disciplina> listaDisciplina=new ArrayList<Disciplina>();
 
 	
 	
@@ -22,7 +23,6 @@ public class Professor extends Pessoa {
 	public List<Disciplina> getListaDisciplina() {
 		return listaDisciplina;
 	}
-	
 	
 	
 	

@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Model.Pojo.Nota;
+import Model.Pojo.Turma;
 
 public class NotaDaoImp implements NotaDao {
 
-	private List<Nota> listaNota;
+	private static List<Nota> listaNota= new ArrayList<Nota>();
 	
 	
 	
@@ -20,19 +21,32 @@ public class NotaDaoImp implements NotaDao {
 	
 	
 	public NotaDaoImp(){
-		this.listaNota = new ArrayList<Nota>();
+		
 	}
 	
 	
 	
 	
-	@Override
-	public void cadastrar(Nota nota) {
-		this.listaNota.add(nota);	
+	public void cadastrar(Nota nota,Turma turma ) {
+		
+		NotaDaoImp.listaNota.add(nota);	
+		
 	}
 	
 	@Override
 	public void remover(Nota nota) {
-		this.listaNota.remove(nota);
+		NotaDaoImp.listaNota.remove(nota);
 	}
-}
+
+
+
+
+	@Override
+	public void cadastrar(Nota nota) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	}

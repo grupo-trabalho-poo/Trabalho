@@ -2,14 +2,14 @@ package Model.Pojo;
 
 public class Nota {
 	
-	private float nota;
+	private String nota;
 	private Aluno aluno;
 	private Atividade atividade;
 	
 
 	
 
-	public float getNota() {
+	public String getNota() {
 		return nota;
 	}
 	
@@ -24,7 +24,9 @@ public class Nota {
 	
 	
 	
-	public Nota(float nota) {
+	public Nota(String nota, Aluno aluno,Atividade atividade) {
+		this.aluno= aluno;
+		this.atividade=atividade;
 		this.nota=nota;
 	}
 }

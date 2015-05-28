@@ -7,20 +7,20 @@ import Model.Pojo.Aluno;
 
 public class AlunoDaoImp implements AlunoDao {
 
-	private List<Aluno> listaAluno;
+	private static List<Aluno> listaAluno= new ArrayList<Aluno>();
 	
 	
 	
 	
-	public List<Aluno> getListaAluno() {
-		return listaAluno;
+	public static List<Aluno> getListaAluno() {
+		return AlunoDaoImp.listaAluno;
 	}
 	
 	
 	
 	
 	public AlunoDaoImp() {
-		this.listaAluno = new ArrayList<Aluno>();
+	
 	}
 	
 	
@@ -28,27 +28,21 @@ public class AlunoDaoImp implements AlunoDao {
 	
 	@Override
 	public void cadastrar(Aluno aluno) {
-		this.listaAluno.add(aluno);	
+		AlunoDaoImp.getListaAluno().add(aluno);	
 	}
 	
 	@Override
 	public void remover(Aluno aluno) {
-		this.listaAluno.remove(aluno);	
+		AlunoDaoImp.getListaAluno().remove(aluno);	
 	}
 	
 	@Override
 	public List<Aluno> obterLista() {
-		return this.listaAluno;
+		return AlunoDaoImp.getListaAluno();
 	}
-	
-	@Override
-	public Aluno pesquisar(Aluno aluno) {
-		for(Aluno aluno1:listaAluno){
-			if(aluno1.equals(aluno)){
-				 return aluno1;
-			}
-		}
-		Aluno aluno2 = new Aluno("Não encontrou o Aluno","000");
-		return aluno2;
+
+	public Aluno pesquisar(Aluno alunoCpf) {
+		
+		return AlunoDaoImp.listaAluno.get(AlunoDaoImp.listaAluno.indexOf(alunoCpf));
 	}
 }

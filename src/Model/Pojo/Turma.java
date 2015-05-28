@@ -1,34 +1,28 @@
 package Model.Pojo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Turma {
 	
-	private String codigoTurma;
-	private int ano;
-	private int periodo;
+	private String ano;
+	private String periodo;
 	private String local;
 	private String horario;
-	private int numeroVagas;
-	private List<Falta> listaFalta;
-	private List<Atividade> listaAtividade;
-	private Turma disciplina;
+	private String numeroVagas;
+	private List<Falta> listaFalta= new ArrayList<Falta>();
+	private static List<Atividade> listaAtividade= new ArrayList<Atividade>();
+	private Disciplina disciplina;
 	private Professor professor;
-	private List<Aluno> listaAluno;
+	private static List<Aluno> listaAluno= new ArrayList<Aluno>();
 	
-	
-	
-	public String getCodigoTurma() {
-		return codigoTurma;
-	}
 
 
-
-	public int getAno() {
+	public String getAno() {
 		return ano;
 	}
 	
-	public int getPeriodo() {
+	public String getPeriodo() {
 		return periodo;
 	}
 	
@@ -40,7 +34,7 @@ public class Turma {
 		return horario;
 	}
 	
-	public int getNumeroVagas() {
+	public String getNumeroVagas() {
 		return numeroVagas;
 	}
 	
@@ -48,11 +42,11 @@ public class Turma {
 		return listaFalta;
 	}
 	
-	public List<Atividade> getListaAtividade() {
+	public static List<Atividade> getListaAtividade() {
 		return listaAtividade;
 	}
 	
-	public Turma getTurma() {
+	public Disciplina getDisciplina() {
 		return disciplina;
 	}
 	
@@ -60,26 +54,29 @@ public class Turma {
 		return professor;
 	}
 	
-	public List<Aluno> getListaAluno() {
+	public static List<Aluno> getListaAluno() {
 		return listaAluno;
 	}
 	
-
 	
 	
 	
-	
-	public Turma(String i,int ano,int periodo, String local, String horario, int numeroVagas) {
-		this.codigoTurma = i;
+	public Turma(String ano,String periodo, String local, String horario, String numeroVagas, Disciplina disciplina,Professor professor ) {
 		this.ano=ano;
 		this.periodo=periodo;
 		this.local=local;
 		this.horario=horario;
 		this.numeroVagas=numeroVagas;
+		this.professor= professor;
+		this.disciplina= disciplina;
+		
 	}
 	
-	public Turma(String codigoTurma) {
-		this.codigoTurma = codigoTurma;
+	public Turma (Disciplina disciplina,String ano,String periodo){
+		this.ano=ano;
+		this.periodo=periodo;
+		this.disciplina= disciplina;
+		
 	}
 	
 	@Override
@@ -88,11 +85,11 @@ public class Turma {
 			return false;
 		}
 		Turma turma = (Turma)obj;
-		return this.codigoTurma.equals(turma.getCodigoTurma());
+		return this.disciplina.equals(turma.getDisciplina()) && this.ano.equals(turma.getAno()) && this.periodo.equals(turma.getPeriodo());
 	}
 	
 	@Override
 	public String toString() {
-		return (" Codigo da Turma: "+this.codigoTurma+" ano: "+this.ano  + " periodo: " + this.periodo + " Local: "+this.local + " Horario: "+this.horario + " Numero de Vagas: "+ this.numeroVagas);
+		return ("Professor: "+this.professor.getNome() + " Disciplina: "+ this.disciplina.getNome()+" ano: "+this.ano  + " periodo: " + this.periodo + " Local: "+this.local + " Horario: "+this.horario + " Numero de Vagas: "+ this.numeroVagas );
 	}
 }

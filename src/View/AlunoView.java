@@ -7,29 +7,22 @@ import Model.Dao.AlunoDaoImp;
 import Model.Pojo.Aluno;
 
 public class AlunoView {
-	
-	AlunoDaoImp alunoDaoImp = new AlunoDaoImp();
+	private AlunoDaoImp alunoDaoImp ;
 	private Scanner scanner;
 	private Scanner scanner1;
 	
 	
 	
 	
-	private void setAlunodaoImp(AlunoDaoImp alunoDaoImp) {
-		
-	}
-	
-	
-	
-	
 	public AlunoView(AlunoDaoImp alunoDaoImp) {
-		this.setAlunodaoImp(alunoDaoImp);
+		this.alunoDaoImp= alunoDaoImp;
 	}
 	
 	
 	
 	
 	public void cadastrar(){
+		System.out.println("\n-------------Cadastro de Aluno-------------\n");
 		scanner = new Scanner (System.in);
 		System.out.println("Informe o nome do Aluno: ");
 		String nome = scanner.nextLine();

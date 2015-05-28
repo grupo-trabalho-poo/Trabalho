@@ -2,14 +2,14 @@ package Model.Pojo;
 
 public class Falta {
 	
-	private int numeroFaltas;
+	private String numeroFaltas;
 	private Aluno aluno;
 	private Turma turma;
 	
 	
 	
 	
-	public int getNumeroFaltas() {
+	public String getNumeroFaltas() {
 		return numeroFaltas;
 	}
 	
@@ -21,10 +21,16 @@ public class Falta {
 		return turma;
 	}
 
-
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Falta)) {
+			return false;
+		}
+		Falta falta = (Falta)obj;
+		return this.numeroFaltas.equals(falta.numeroFaltas);
+	}
 	
 	
-	public Falta(int numeroFaltas) {
+	public Falta(String numeroFaltas) {
 	
 		this.numeroFaltas=numeroFaltas;
 	}	

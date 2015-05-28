@@ -3,25 +3,26 @@ package View;
 import java.util.Scanner;
 
 import Model.Dao.NotaDaoImp;
+import Model.Pojo.Aluno;
+import Model.Pojo.Atividade;
+import Model.Pojo.Disciplina;
 import Model.Pojo.Nota;
+import Model.Pojo.Turma;
 
 public class NotaView {
 	
-	NotaDaoImp notaDaoImp = new NotaDaoImp();
+	private NotaDaoImp notaDaoImp;
 	private Scanner scanner;
 	
 	
 	
-	
-	private void setNotadaoImp(NotaDaoImp notaDaoImp) {
-		
-	}
+
 	
 	
 	
 	
 	public NotaView(NotaDaoImp notaDaoImp) {
-		this.setNotadaoImp(notaDaoImp);
+		this.notaDaoImp=notaDaoImp;
 	}
 	
 	
@@ -30,8 +31,23 @@ public class NotaView {
 	public void cadastrar(){
 		scanner = new Scanner (System.in);
 		System.out.println("Informe a Nota: ");
-		float notaAluno = scanner.nextInt();
-		Nota nota = new Nota(notaAluno);
-		notaDaoImp.cadastrar(nota);
+		String notaAluno = scanner.nextLine();
+		System.out.println("Informe o cpf  do aluno");
+		String cpf = scanner.nextLine();
+		Aluno aluno = new Aluno(cpf);
+		System.out.println("Informe o nome da atividade: ");
+		String nomeAtividade= scanner.nextLine();
+		Atividade atividade =new Atividade(nomeAtividade);
+		System.out.println("Entre com a Disciplina da Turma: ");
+		String nomeDisciplina2  = scanner.nextLine();
+		System.out.println("Entre com o Ano da turma: ");
+		String ano  = scanner.nextLine();
+		System.out.println("Entre com o Periodo da Turma: ");
+		String periodo  = scanner.nextLine();
+		Disciplina disciplina = new Disciplina(nomeDisciplina2);
+		Turma turma= new Turma(disciplina,ano,periodo);
+		Nota nota = new Nota(notaAluno,aluno,atividade);
+		notaDaoImp.cadastrar(nota, turma);
 	}
-}
+		
+	}

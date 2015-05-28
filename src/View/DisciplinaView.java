@@ -4,39 +4,38 @@ import java.util.List;
 import java.util.Scanner;
 
 import Model.Dao.DisciplinaDaoImp;
+import Model.Dao.TurmaDaoImp;
 import Model.Pojo.Disciplina;
+import Model.Pojo.Turma;
 
 public class DisciplinaView {
 	
-	DisciplinaDaoImp disciplinaDaoImp = new DisciplinaDaoImp();
+	private DisciplinaDaoImp disciplinaDaoImp;
 	private Scanner scanner;
 	private Scanner scanner1;
+	private Scanner scanner12;
 	
-	
-	
-	
-	private void setDisciplinadaoImp(DisciplinaDaoImp disciplinaDaoImp) {
-		
-	}
-	
+
+
 	
 	
 	
 	public DisciplinaView(DisciplinaDaoImp disciplinaDaoImp) {
-		this.setDisciplinadaoImp(disciplinaDaoImp);
+		this.disciplinaDaoImp=disciplinaDaoImp;
 	}
 
 
 
 
 	public void cadastrar(){
+		System.out.println("\n-------------Cadastro de Disciplina-------------\n");
 		scanner = new Scanner (System.in);
 		System.out.println("Informe o nome do Disciplina: ");
 		String nome = scanner.nextLine();
 		System.out.println("Informe a ementa: ");
 		String ementa = scanner.nextLine();
 		System.out.println("Informe a carga horaria: ");
-		int carga = scanner.nextInt();
+		String carga = scanner.nextLine();
 		Disciplina disciplina = new Disciplina(nome,ementa,carga);
 		disciplinaDaoImp.cadastrar(disciplina);		
 	}
@@ -54,7 +53,21 @@ public class DisciplinaView {
 		String nome = scanner1.nextLine();
 		Disciplina disciplina = new Disciplina(nome);
 		disciplina = disciplinaDaoImp.pesquisar(disciplina);
-		System.out.println("Disciplina a ser Removido: " + disciplina);
+		System.out.println("Disciplina a ser Removida: " + disciplina);
 		disciplinaDaoImp.remover(disciplina);	
 	}	
+
+	public void consultaHistoricamenteDisciplina(TurmaDaoImp turmaDaoImp){
+		scanner12 = new Scanner(System.in);
+		System.out.println("Digite nome da disciplina");
+		String nomeDisciplina = scanner12.nextLine(); 
+		List<Turma> listaTurma = turmaDaoImp.pesquisarTurmaNomeDisciplina(nomeDisciplina);
+		for(Turma turma:listaTurma){
+			System.out.println(turma);
+			
+			
+		}
+		
+	
+	}
 }

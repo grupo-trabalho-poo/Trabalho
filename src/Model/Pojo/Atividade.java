@@ -1,5 +1,6 @@
 package Model.Pojo;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -8,9 +9,9 @@ public class Atividade {
 	private String nome;
 	private String tipo;
 	private Calendar data;
-	private List<Nota> listaNotas;
+	private List<Nota> listaNotas=new ArrayList<Nota>();
 	private Turma turma;
-	private List<Aluno> listaAluno;
+	private List<Aluno> listaAluno=new ArrayList<Aluno>();
 	private float valor;
 	
 	
@@ -69,6 +70,6 @@ public class Atividade {
 	
 	@Override
 	public String toString() {
-		return (" Nome: "+this.nome+" Tipo: "+this.tipo + " Data: "+ data.get(data.DAY_OF_MONTH)+"/"+data.get(data.MONTH)+"/"+data.get(data.YEAR) + " Valor: " + this.valor);
+		return (" Nome: "+this.nome+" Tipo: "+this.tipo + " Data: "+ data.get(Calendar.DAY_OF_MONTH)+"/"+data.get(Calendar.MONTH)+"/"+data.get(Calendar.YEAR) + " Valor: " + this.valor);
 	}
 }

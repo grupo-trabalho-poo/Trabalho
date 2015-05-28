@@ -1,13 +1,14 @@
 package Model.Pojo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Aluno extends Pessoa {
 	
-	private List<Turma> listaTurma; 
-	private List<Falta> listaFalta;
-	private List<Nota> listaNotas;
-	private List<Atividade> ListaAtividade;
+	private List<Turma> listaTurma=new ArrayList<Turma>(); 
+	private List<Falta> listaFalta=new ArrayList<Falta>();
+	private List<Nota> listaNotas=new ArrayList<Nota>();
+	private List<Atividade> ListaAtividade=new ArrayList<Atividade>();
 	
 	
 	

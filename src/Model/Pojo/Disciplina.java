@@ -1,17 +1,15 @@
 package Model.Pojo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Disciplina {
 	
 	private String nome;
 	private String ementa;
-	private int cargaHoraria;
-	private List<Turma> listaTurma;
-	private List<Professor> listaProfessores;
-
-	
-	
+	private String cargaHoraria;
+	private List<Turma> listaTurma=new ArrayList<Turma>();
+	private List<Professor> listaProfessores=new ArrayList<Professor>();
 	
 	public String getNome() {
 		return nome;
@@ -21,7 +19,7 @@ public class Disciplina {
 		return ementa;
 	}
 	
-	public int getCargaHoraria() {
+	public String getCargaHoraria() {
 		return cargaHoraria;
 	}
 	
@@ -36,7 +34,7 @@ public class Disciplina {
 
 	
 	
-	public Disciplina(String nome,String ementa,int cargaHoraria) {
+	public Disciplina(String nome,String ementa,String cargaHoraria) {
 		this.nome=nome;
 		this.ementa=ementa;
 		this.cargaHoraria=cargaHoraria;
@@ -45,8 +43,6 @@ public class Disciplina {
 	public Disciplina(String nome) {
 		this.nome=nome;
 	}	
-	
-	
 	
 	@Override
 	public boolean equals(Object obj) {

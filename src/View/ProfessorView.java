@@ -8,27 +8,25 @@ import Model.Pojo.Professor;
 
 public class ProfessorView {
 	
-	ProfessorDaoImp professorDaoImp = new ProfessorDaoImp();
+	private ProfessorDaoImp professorDaoImp;
 	private Scanner scanner;
 	private Scanner scanner1;
+
 	
 	
-	
-	
-	private void setProfessordaoImp(ProfessorDaoImp professorDaoImp) {
-		
-	}
+
 	
 	
 	
 	public ProfessorView(ProfessorDaoImp professorDaoImp) {
-		this.setProfessordaoImp(professorDaoImp);
+		this.professorDaoImp=professorDaoImp;
 	}
 	
 	
 	
 	
 	public void cadastrar(){
+		System.out.println("\n-------------Cadastro de Professor-------------\n");
 		scanner = new Scanner (System.in);
 		System.out.println("Informe o nome do Professor: ");
 		String nome = scanner.nextLine();
@@ -56,4 +54,7 @@ public class ProfessorView {
 		System.out.println("Professor a ser Removido: " + professor);
 		professorDaoImp.remover(professor);	
 	}
+	
+
+		
 }

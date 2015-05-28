@@ -7,21 +7,13 @@ import Model.Pojo.Falta;
 
 public class FaltaView {
 	
-	FaltaDaoImp faltaDaoImp = new FaltaDaoImp();
+	private FaltaDaoImp faltaDaoImp;
 	private Scanner scanner;
 	
 	
 	
-	
-	private void setFaltadaoImp(FaltaDaoImp faltaDaoImp) {
-		
-	}
-	
-	
-	
-	
 	public FaltaView(FaltaDaoImp faltaDaoImp) {
-		this.setFaltadaoImp(faltaDaoImp);
+		this.faltaDaoImp=faltaDaoImp;
 	}
 
 
@@ -30,7 +22,7 @@ public class FaltaView {
 	public void cadastrar(){
 		scanner = new Scanner (System.in);
 		System.out.println("Informe o Numero de Falta: ");
-		int numeroFaltas = scanner.nextInt();
+		String numeroFaltas = scanner.nextLine();
 		Falta falta = new Falta(numeroFaltas);
 		faltaDaoImp.cadastrar(falta);		
 	}
