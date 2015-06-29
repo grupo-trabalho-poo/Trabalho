@@ -2,18 +2,18 @@ package View;
 
 import java.util.Scanner;
 
-import Model.Dao.FaltaDaoImp;
+import Model.Dao.FaltaDao;
 import Model.Pojo.Falta;
 
 public class FaltaView {
 	
-	private FaltaDaoImp faltaDaoImp;
+	private FaltaDao faltaDao;
 	private Scanner scanner;
 	
 	
 	
-	public FaltaView(FaltaDaoImp faltaDaoImp) {
-		this.faltaDaoImp=faltaDaoImp;
+	public FaltaView(FaltaDao faltaDao) {
+		this.faltaDao=faltaDao;
 	}
 
 
@@ -24,6 +24,6 @@ public class FaltaView {
 		System.out.println("Informe o Numero de Falta: ");
 		String numeroFaltas = scanner.nextLine();
 		Falta falta = new Falta(numeroFaltas);
-		faltaDaoImp.cadastrar(falta);		
+		faltaDao.salvar(falta);		
 	}
 }

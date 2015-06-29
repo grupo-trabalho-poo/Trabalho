@@ -3,12 +3,12 @@ package View;
 import java.util.List;
 import java.util.Scanner;
 
-import Model.Dao.ProfessorDaoImp;
+import Model.Dao.ProfessorDao;
 import Model.Pojo.Professor;
 
 public class ProfessorView {
 	
-	private ProfessorDaoImp professorDaoImp;
+	private ProfessorDao professorDao;
 	private Scanner scanner;
 	private Scanner scanner1;
 
@@ -18,8 +18,8 @@ public class ProfessorView {
 	
 	
 	
-	public ProfessorView(ProfessorDaoImp professorDaoImp) {
-		this.professorDaoImp=professorDaoImp;
+	public ProfessorView(ProfessorDao professorDao) {
+		this.professorDao=professorDao;
 	}
 	
 	
@@ -35,11 +35,11 @@ public class ProfessorView {
 		System.out.println("Informe o Departamento: ");
 		String departamento = scanner.nextLine();
 		Professor professor = new Professor(nome,cpf,departamento);
-		professorDaoImp.cadastrar(professor);	
+		professorDao.salvar(professor);	
 	}
 	
 	public void listar(){
-		List<Professor> listaProfessor = professorDaoImp.obterLista();
+		List<Professor> listaProfessor = professorDao.obterLista();
 		for(Professor professor:listaProfessor){
 			System.out.println(professor);
 		}
@@ -50,9 +50,9 @@ public class ProfessorView {
 		System.out.println("Entre com o cpf do professor a ser deletado: ");
 		String cpf = scanner1.nextLine();
 		Professor professor = new Professor(cpf);
-		professor = professorDaoImp.pesquisar(professor);
+		professor = professorDao.pesquisar(professor);
 		System.out.println("Professor a ser Removido: " + professor);
-		professorDaoImp.remover(professor);	
+		professorDao.remover(professor);	
 	}
 	
 

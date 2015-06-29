@@ -2,49 +2,35 @@ package View;
 
 import java.util.Scanner;
 
-import Model.Dao.AlunoDaoImp;
+import Model.Dao.AlunoDao;
 
 public class MenuAluno {
-	static Scanner scanner1 = new Scanner(System.in);
 
-	public MenuAluno() {
-	}
+    static Scanner scanner1 = new Scanner(System.in);
 
-	public void menu(AlunoDaoImp alunoDaoImp) {
+    public MenuAluno() {
+    }
 
-		String opcao2 = "0";
-		System.out.println();
-		while (opcao2 != "7") {
-			AlunoView alunoView = new AlunoView(alunoDaoImp);
-			System.out.println("Menu academico de aluno");
-			System.out.println("Para cadastrar um aluno no sistema, digite 1");
-			System.out.println("Para remover um aluno no sistema, digite 2");
-			System.out.println("Para cadastrar uma nota de um aluno , digite 3");
-			System.out.println("Para consultar a situação de um aluno em uma disciplina, digite 4");
-			opcao2 = scanner1.nextLine();
+    public void menu(AlunoDao alunoDao) {
 
-			if (opcao2.equals("1")) {
-				alunoView.cadastrar();
-				alunoView.listar();
-			}
+        String opcao2 = "0";
+        System.out.println();
+        while (opcao2 != "7") {
+            AlunoView alunoView = new AlunoView(alunoDao);
+            System.out.println("------------------------Menu academico de aluno------------------------");
+            System.out.println("1 - Para cadastrar um aluno no sistema");
+            System.out.println("2-Sair");
+            opcao2 = scanner1.nextLine();
 
-			else if (opcao2.equals("2")) {
-				alunoView.removerAluno();
+            if (opcao2.equals("1")) {
+                alunoView.cadastrar();
+                alunoView.listar();
+            } else if (opcao2.equals("2")) {
+                break;
+            }
 
-			}
+        }
 
-			else if (opcao2.equals("3")) {
-
-			}
-
-			else if (opcao2.equals("4")) {
-			}
-
-			else
-				break;
-
-		}
-
-	}
+    }
 
 }

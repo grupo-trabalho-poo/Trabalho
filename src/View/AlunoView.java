@@ -3,19 +3,19 @@ package View;
 import java.util.List;
 import java.util.Scanner;
 
-import Model.Dao.AlunoDaoImp;
+import Model.Dao.AlunoDao;
 import Model.Pojo.Aluno;
 
 public class AlunoView {
-	private AlunoDaoImp alunoDaoImp ;
+	private AlunoDao alunoDao ;
 	private Scanner scanner;
 	private Scanner scanner1;
 	
 	
 	
 	
-	public AlunoView(AlunoDaoImp alunoDaoImp) {
-		this.alunoDaoImp= alunoDaoImp;
+	public AlunoView(AlunoDao alunoDao) {
+		this.alunoDao= alunoDao;
 	}
 	
 	
@@ -29,11 +29,11 @@ public class AlunoView {
 		System.out.println("Informe o CPF: ");
 		String cpf = scanner.nextLine();
 		Aluno aluno = new Aluno(nome,cpf);
-		alunoDaoImp.cadastrar(aluno);
+		alunoDao.salvar(aluno);
 	}
 	
 	public void listar(){
-		List<Aluno> listaAluno = alunoDaoImp.obterLista();
+		List<Aluno> listaAluno = alunoDao.obterLista();
 		for(Aluno aluno:listaAluno){
 			System.out.println(aluno);
 		}
@@ -44,8 +44,8 @@ public class AlunoView {
 		System.out.println("Entre com o cpf do aluno a ser deletado: ");
 		String cpf = scanner1.nextLine();
 		Aluno aluno = new Aluno(cpf);
-		aluno = alunoDaoImp.pesquisar(aluno);
+		aluno = alunoDao.pesquisar(aluno);
 		System.out.println("Aluno a ser Removido: " + aluno);
-		alunoDaoImp.remover(aluno);	
+		alunoDao.remover(aluno);	
 	}
 }

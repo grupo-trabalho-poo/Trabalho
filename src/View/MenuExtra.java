@@ -2,9 +2,9 @@ package View;
 
 import java.util.Scanner;
 
-import Model.Dao.AtividadeDaoImp;
-import Model.Dao.FaltaDaoImp;
-import Model.Dao.NotaDaoImp;
+import Model.Dao.AtividadeDao;
+import Model.Dao.FaltaDao;
+import Model.Dao.NotaDao;
 
 public class MenuExtra {
 	static Scanner scanner1 = new Scanner(System.in);
@@ -12,19 +12,20 @@ public class MenuExtra {
 	public MenuExtra() {
 	}
 
-	public void menu(FaltaDaoImp faltaDaoImp,NotaDaoImp notaDaoImp,AtividadeDaoImp atividadeDaoImp) {
+	public void menu(FaltaDao faltaDao,NotaDao notaDao,AtividadeDao atividadeDao) {
 
 		String opcao2 = "0";
 		System.out.println();
-		while (opcao2 != "4") {
-			FaltaView faltaView = new FaltaView(faltaDaoImp);
-			NotaView notaView = new NotaView(notaDaoImp);
-			AtividadeView atividadeView = new AtividadeView(atividadeDaoImp);
+		while (opcao2 != "10") {
+			FaltaView faltaView = new FaltaView(faltaDao);
+			NotaView notaView = new NotaView(notaDao);
+			AtividadeView atividadeView = new AtividadeView(atividadeDao);
 
 			System.out.println("Menu academico de aluno");
-			System.out.println("Para cadastrar uma falta de um aluno no sistema, digite 1");
-			System.out.println("Para cadastrar uma nota de um aluno no sistema, digite 2");
-			System.out.println("Para cadastrar uma atividade em uma disciplina , digite 3");
+			System.out.println("1 - Para cadastrar uma falta de um aluno no sistema");
+			System.out.println("2 - Para cadastrar uma nota de um aluno no sistema");
+			System.out.println("3 - Para cadastrar uma atividade em uma disciplina ");
+			System.out.println("4 - Sair ");
 			opcao2 = scanner1.nextLine();
 
 			if (opcao2.equals("1")) {
@@ -41,7 +42,7 @@ public class MenuExtra {
 				
 
 			}
-			else
+			else if (opcao2.equals("4"))
 				break;
 
 		}

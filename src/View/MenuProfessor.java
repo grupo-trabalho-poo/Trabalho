@@ -2,48 +2,36 @@ package View;
 
 import java.util.Scanner;
 
-import Model.Dao.DisciplinaDaoImp;
-import Model.Dao.ProfessorDaoImp;
+import Model.Dao.DisciplinaDao;
+import Model.Dao.ProfessorDao;
 
 public class MenuProfessor {
-	static Scanner scanner1 = new Scanner(System.in);
 
-	public MenuProfessor() {
-	}
+    static Scanner scanner1 = new Scanner(System.in);
 
-	public void menu(DisciplinaDaoImp disciplinaDaoImp ,ProfessorDaoImp professorDaoImp) {
+    public MenuProfessor() {
+    }
 
-		String opcao2 = "0";
-		System.out.println();
-		while (opcao2 != "7") {
-			ProfessorView professorView = new ProfessorView(professorDaoImp);
-			System.out.println("Menu academico de professor");
-			System.out.println("Para cadastrar um professor no sistema, digite 1");
-			System.out.println("Para remover um professor no sistema, digite 2");
-			System.out.println("Para consultar a situação de um aluno em uma disciplina, digite 3");
-			opcao2 = scanner1.nextLine();
+    public void menu(DisciplinaDao disciplinaDao, ProfessorDao professorDao) {
 
-			if (opcao2.equals("1") ) {
-				professorView.cadastrar();
-				professorView.listar();
-			}
+        String opcao2 = "0";
+        System.out.println();
+        while (opcao2 != "7") {
+            ProfessorView professorView = new ProfessorView(professorDao);
+            System.out.println("Menu academico de professor");
+            System.out.println("1 - Para cadastrar um professor no sistema");
+            System.out.println("2 - Sair");
+            opcao2 = scanner1.nextLine();
 
-			else if (opcao2.equals("2")) {
-				professorView.removerProfessor();
+            if (opcao2.equals("1")) {
+                professorView.cadastrar();
+                professorView.listar();          
+           } else if (opcao2.equals("2")) {
+                break;
+            }
 
-			}
+        }
 
-			else if (opcao2.equals("3")) {
-
-			}
-			
-			else
-				break;
-
-		}
-
-	}
+    }
 
 }
-
-

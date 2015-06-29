@@ -2,7 +2,7 @@ package View;
 
 import java.util.Scanner;
 
-import Model.Dao.NotaDaoImp;
+import Model.Dao.NotaDao;
 import Model.Pojo.Aluno;
 import Model.Pojo.Atividade;
 import Model.Pojo.Disciplina;
@@ -11,18 +11,15 @@ import Model.Pojo.Turma;
 
 public class NotaView {
 	
-	private NotaDaoImp notaDaoImp;
+	private NotaDao notaDao;
 	private Scanner scanner;
 	
 	
 	
 
-	
-	
-	
-	
-	public NotaView(NotaDaoImp notaDaoImp) {
-		this.notaDaoImp=notaDaoImp;
+
+	public NotaView(NotaDao notaDao) {
+		this.notaDao=notaDao;
 	}
 	
 	
@@ -47,7 +44,8 @@ public class NotaView {
 		Disciplina disciplina = new Disciplina(nomeDisciplina2);
 		Turma turma= new Turma(disciplina,ano,periodo);
 		Nota nota = new Nota(notaAluno,aluno,atividade);
-		notaDaoImp.cadastrar(nota, turma);
+		
+		notaDao.salvar(nota);
 	}
 		
 	}

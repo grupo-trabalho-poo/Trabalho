@@ -4,21 +4,21 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
-import Model.Dao.AtividadeDaoImp;
+import Model.Dao.AtividadeDao;
 import Model.Pojo.Atividade;
 
 
 public class AtividadeView {
 	
-	private AtividadeDaoImp atividadeDaoImp ;
+	private AtividadeDao atividadeDao ;
 	private Scanner scanner;
 	private Scanner scanner1;
 	
 	
 	
 	
-	public AtividadeView(AtividadeDaoImp atividadeDaoImp) {
-		this.atividadeDaoImp= atividadeDaoImp;
+	public AtividadeView(AtividadeDao atividadeDao) {
+		this.atividadeDao= atividadeDao;
 	}
 	
 	
@@ -30,22 +30,17 @@ public class AtividadeView {
 		String nome = scanner.nextLine();
 		System.out.println("Informe o tipo da Atividade: ");
 		String tipo = scanner.nextLine();
-		Calendar data = Calendar.getInstance();
 		System.out.println("Informe a Data (dia/mes/ano): ");
-		int dia = scanner.nextInt(); 
-		int mes = scanner.nextInt();
-		int ano = scanner.nextInt();
-		data.set(Calendar.YEAR,ano);
-		data.set(Calendar.MONTH,mes);
-		data.set(Calendar.DAY_OF_MONTH,dia);
+                String data = scanner.nextLine();
 		System.out.println("Informe o Valor: ");
 		float valor = scanner.nextInt();	
 		Atividade atividade = new Atividade(nome,tipo,data,valor);
-		atividadeDaoImp.cadastrar(atividade);	
+		atividadeDao.salvar(atividade);	
 	}
 	
+
 	public void listar(){
-		List<Atividade> listaAtividade = atividadeDaoImp.obterLista();
+		List<Atividade> listaAtividade = atividadeDao.obterLista();
 		for(Atividade atividade:listaAtividade){
 			System.out.println(atividade);
 		}
@@ -56,8 +51,8 @@ public class AtividadeView {
 		System.out.println("Entre com o nome da atividade: ");
 		String nome = scanner1.nextLine();
 		Atividade atividade = new Atividade(nome);
-		atividade = atividadeDaoImp.pesquisar(atividade);
+		atividade = atividadeDao.pesquisar(atividade);
 		System.out.println("Atividade a ser Removido: " + atividade);
-		atividadeDaoImp.remover(atividade);	
+		atividadeDao.remover(atividade);	
 	}	
 }
